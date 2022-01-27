@@ -72,8 +72,7 @@ import {
 import {LocalLogger} from './../utils/logger';
 import {parse as parseJSONC} from 'jsonc-parser';
 
-import compileVla from "../../lib/compile";
-import elaborateVla from "../../lib/elaboration";
+import {compileVla, elaborateVla} from '../../../vl-animation';
 
 function errorLine(code: string, error: string) {
   const pattern = /(position\s)(\d+)/;
