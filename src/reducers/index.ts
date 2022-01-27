@@ -72,6 +72,9 @@ import {
 import {LocalLogger} from './../utils/logger';
 import {parse as parseJSONC} from 'jsonc-parser';
 
+import compileVla from "../../lib/compile";
+import elaborateVla from "../../lib/elaboration";
+
 function errorLine(code: string, error: string) {
   const pattern = /(position\s)(\d+)/;
   let charPos: any = error.match(pattern);
@@ -253,9 +256,15 @@ function parseVegaLite(
       }
     }
 
-    validateVegaLite(vegaLiteSpec, currLogger);
+    // validateVegaLite(vegaLiteSpec, currLogger);
 
-    const compileResult = spec !== '{}' ? vegaLite.compile(vegaLiteSpec, options) : {spec: {}, normalized: {}};
+    const vlaElaborateResult = elaborateVla(vegaLiteSpec as any);
+    const vlaCompileResult = compileVla(vlaElaborateResult as any);
+
+    const compileResult = spec !== '{}' ?
+      // vegaLite.compile(vegaLiteSpec, options) :
+      {spec: vlaCompileResult, normalized: vlaCompileResult} :
+      {spec: {}, normalized: {}};
     const vegaSpec = compileResult.spec;
     const normalizedVegaLiteSpec = compileResult.normalized;
 
