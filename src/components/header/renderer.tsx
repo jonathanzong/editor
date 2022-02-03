@@ -385,9 +385,9 @@ class Header extends React.PureComponent<PropsType, State> {
             {runButton}
             {autoRunToggle}
           </span>
-          {optionsButton}
+          {/* {optionsButton} */}
 
-          <PortalWithState closeOnEsc>
+          {/* <PortalWithState closeOnEsc>
             {({openPortal, closePortal, portal}) => [
               <span key="0" onClick={openPortal}>
                 {exportButton}
@@ -504,10 +504,10 @@ class Header extends React.PureComponent<PropsType, State> {
                 </div>
               ),
             ]}
-          </PortalWithState>
+          </PortalWithState> */}
         </section>
 
-        <section className="right-section">
+        {/* <section className="right-section">
           <PortalWithState closeOnEsc>
             {({openPortal, closePortal, isOpen, portal}) => {
               if (!this.listenerAttached) {
@@ -536,7 +536,7 @@ class Header extends React.PureComponent<PropsType, State> {
           </PortalWithState>
           {settingsButton}
           {authButton}
-        </section>
+        </section> */}
       </div>
     );
   }
