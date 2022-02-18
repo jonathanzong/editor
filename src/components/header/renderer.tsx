@@ -405,7 +405,7 @@ class Header extends React.PureComponent<PropsType, State> {
                 </div>
               ),
             ]}
-          </PortalWithState>
+          </PortalWithState> */}
 
           <PortalWithState closeOnEsc>
             {({openPortal, closePortal, portal}) => [
@@ -427,7 +427,7 @@ class Header extends React.PureComponent<PropsType, State> {
             ]}
           </PortalWithState>
 
-          <PortalWithState closeOnEsc>
+          {/* <PortalWithState closeOnEsc>
             {({openPortal, closePortal, portal}) => [
               <span key="0" onClick={openPortal}>
                 {gistButton}
