@@ -235,6 +235,17 @@ class Editor extends React.PureComponent<Props, State> {
 
     view.renderer(renderer).initialize(chart);
 
+    const animSliderSignal = Object.keys((view as any)._signals).find(s => s.endsWith('__vgsid_'));
+    if (animSliderSignal) {
+      view.addSignalListener('anim_value', (_, value) => {
+        view.signal(`${animSliderSignal}_modify`, false);
+        view.signal(animSliderSignal, value);
+        view.runAfter((view) => {
+          view.signal(`${animSliderSignal}_modify`, true);
+        })
+      })
+    }
+
     await view.runAsync();
 
     if (tooltipEnable) {
