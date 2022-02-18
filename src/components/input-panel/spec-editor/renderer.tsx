@@ -245,7 +245,6 @@ class Editor extends React.PureComponent<Props> {
       }
     } catch (err) {
       console.warn('Error parsing JSON string', err);
-      throw this.props.logError(err);
     }
 
     switch (parsedMode) {
