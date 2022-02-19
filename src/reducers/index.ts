@@ -257,19 +257,19 @@ function parseVegaLite(
 
     // validateVegaLite(vegaLiteSpec, currLogger);
 
-    let vlaCompileResult;
+    let compileResult;
     try {
       const vlaElaborateResult = elaborateVla(vegaLiteSpec as any);
-      vlaCompileResult = compileVla(vlaElaborateResult as any);
+      const vlaCompileResult = compileVla(vlaElaborateResult as any);
+      compileResult =
+        spec !== '{}'
+          ? // vegaLite.compile(vegaLiteSpec, options) :
+            {spec: vlaCompileResult, normalized: vlaCompileResult}
+          : {spec: {}, normalized: {}};
     } catch (e) {
-      vlaCompileResult = vegaLite.compile(vegaLiteSpec, options).spec;
+      compileResult = spec !== '{}' ? vegaLite.compile(vegaLiteSpec, options) : {spec: {}, normalized: {}};
     }
 
-    const compileResult =
-      spec !== '{}'
-        ? // vegaLite.compile(vegaLiteSpec, options) :
-          {spec: vlaCompileResult, normalized: vlaCompileResult}
-        : {spec: {}, normalized: {}};
     const vegaSpec = compileResult.spec;
     const normalizedVegaLiteSpec = compileResult.normalized;
 
