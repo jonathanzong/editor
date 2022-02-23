@@ -507,8 +507,8 @@ class Header extends React.PureComponent<PropsType, State> {
           </PortalWithState> */}
         </section>
 
-        {/* <section className="right-section">
-          <PortalWithState closeOnEsc>
+        <section className="right-section">
+          {/* <PortalWithState closeOnEsc>
             {({openPortal, closePortal, isOpen, portal}) => {
               if (!this.listenerAttached) {
                 this.handleHelpModalToggle(event, openPortal, closePortal, isOpen);
@@ -533,10 +533,10 @@ class Header extends React.PureComponent<PropsType, State> {
                 ),
               ];
             }}
-          </PortalWithState>
+          </PortalWithState> */}
           {settingsButton}
-          {authButton}
-        </section> */}
+          {/* {authButton} */}
+        </section>
       </div>
     );
   }
