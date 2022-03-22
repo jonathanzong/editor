@@ -264,9 +264,10 @@ function parseVegaLite(
       compileResult =
         spec !== '{}'
           ? // vegaLite.compile(vegaLiteSpec, options) :
-            {spec: vlaCompileResult, normalized: vlaCompileResult}
+            {spec: vlaCompileResult, normalized: vlaElaborateResult}
           : {spec: {}, normalized: {}};
     } catch (e) {
+      console.error(e);
       compileResult = spec !== '{}' ? vegaLite.compile(vegaLiteSpec, options) : {spec: {}, normalized: {}};
     }
 
